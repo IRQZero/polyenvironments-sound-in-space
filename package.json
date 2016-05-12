@@ -4,7 +4,8 @@
   "description": "website",
   "main": "src/index.js",
   "scripts": {
-    "build": "cartero 'src/views/**/index.js' 'public/assets'",
+    "start": "node src/app.js",
+    "build": "npm i && mkdir -p public/assets && cartero 'src/views/**/index.js' 'public/assets'",
     "test": "test"
   },
   "keywords": [
@@ -14,11 +15,15 @@
   "author": "matt howell <matthewdhowell@gmail.com> (http://matthewdhowell.com)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.1",
+    "browserify": "^2.3.0",
     "cartero": "^6.1.0",
     "cartero-express-middleware": "^1.0.0",
     "cartero-node-hook": "^3.1.1",
+    "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
-    "jquery": "^2.2.3"
+    "jquery": "^2.2.3",
+    "static-favicon": "^2.0.0-alpha"
   },
   "devDependencies": {
     "brfs": "^1.4.3",

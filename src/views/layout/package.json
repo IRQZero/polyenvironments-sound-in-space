@@ -1,3 +1,8 @@
 {
-  "style": "*.css"
+    "name" : "layout",
+    "main" : "layout.js",
+    "dependencies" : {},
+
+    "style" : "*.css",
+    "image" : []
 }
