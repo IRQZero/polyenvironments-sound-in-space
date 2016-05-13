@@ -2,6 +2,5 @@
     "name" : "error",
     "main" : "error.js",
     "dependencies" : {},
-
     "style" : "*.css"
 }

@@ -2,10 +2,10 @@
   "name": "irqzero.com",
   "version": "1.0.0",
   "description": "website",
-  "main": "src/index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "build": "npm i && mkdir -p public/assets && cartero 'src/views/**/index.js' 'public/assets'",
+    "start": "cartero 'src/pages/**/index.js' 'public/assets' && node app.js",
+    "build": "npm i; mkdir -p public/assets; cartero 'src/pages/**/index.js' 'public/assets'",
     "test": "test"
   },
   "keywords": [
@@ -17,19 +17,17 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "browserify": "^2.3.0",
-    "cartero": "^6.1.0",
+    "cartero": "^6.2.0",
     "cartero-express-middleware": "^1.0.0",
     "cartero-node-hook": "^3.1.1",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
+    "express-hbs": "^1.0.1",
     "jquery": "^2.2.3",
-    "static-favicon": "^2.0.0-alpha"
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "brfs": "^1.4.3",
-    "gulp-browserify": "^0.5.1",
-    "handlebars": "^4.0.5",
-    "handlebars-helpers": "^0.5.8",
-    "hbsfy": "^2.7.0"
+    "gulp-browserify": "^0.5.1"
   }
 }
