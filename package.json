@@ -4,8 +4,8 @@
   "description": "website",
   "main": "app.js",
   "scripts": {
-    "start": "cartero 'src/pages/**/index.js' 'public/assets' && node app.js",
-    "build": "npm i; mkdir -p public/assets; cartero 'src/pages/**/index.js' 'public/assets'",
+    "start": "node app.js",
+    "build": "mkdir -p public/assets; cartero 'src/pages/**/index.js' 'public/assets'",
     "test": "test"
   },
   "keywords": [

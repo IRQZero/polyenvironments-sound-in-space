@@ -1,6 +1,6 @@
 {
     "name" : "error",
-    "main" : "error.js",
+    "main" : "index.js",
     "dependencies" : {},
     "style" : "*.css"
 }

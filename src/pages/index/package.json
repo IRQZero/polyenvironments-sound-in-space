@@ -1,7 +1,5 @@
 {
     "name" : "index",
     "main" : "index.js",
-    "dependencies" : {},
-
     "style" : "*.css"
 }
