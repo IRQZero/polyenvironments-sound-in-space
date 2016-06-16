@@ -1,17 +1,8 @@
+var createjs = require('createjs-soundjs');
 console.log('index page js');
-
-window.AudioContext = window.AudioContext||window.webkitAudioContext;
-  context = new AudioContext();
-
-function loadSound() {
-  var request = new XMLHttpRequest();
-  request.open("GET", "http://localhost:8000/sound", true); 
-  request.responseType = "arraybuffer";
-
-  request.onload = function() {
-      var Data = request.response;
-      process(Data);
-  };
-
-  request.send();
- }
+// if initializeDefaultPlugins returns false, we cannot play sound in this browser
+if (!createjs.Sound.initializeDefaultPlugins()) {
+  return;
+} else {
+  console.log('rad, sound off');
+}

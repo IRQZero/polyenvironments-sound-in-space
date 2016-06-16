@@ -1,6 +1,10 @@
 {
     "name" : "error",
     "main" : "index.js",
-    "dependencies" : {},
+    "transforms" : ["hbsfy"],
+    "dependencies" : {
+      "hbsfy" : "^2.7.0",
+      "handlebars" : "^4.0.5"
+    },
     "style" : "*.css"
 }

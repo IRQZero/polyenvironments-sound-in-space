@@ -1,5 +1,10 @@
 {
     "name" : "index",
     "main" : "index.js",
+    "transforms" : ["hbsfy"],
+    "dependencies" : {
+      "hbsfy" : "^2.7.0",
+      "handlebars" : "^4.0.5"
+    },
     "style" : "*.css"
 }

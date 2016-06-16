@@ -1,6 +1,7 @@
 var path = require('path');
 var fs = require('fs');
 var express = require('express');
+var hbs = require('hbs');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var carteroHook = require('cartero-node-hook');
@@ -25,14 +26,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 var pages = fs.readdirSync(pagesDir);
 console.log('APP-SERVER: Looking for page routes:', pages);
 pages.forEach(function(pageDirName, i, pageDirNames) {
-  var routerPath = path.join(__dirname, pagesDir, pageDirName, 'server.js');
-  if(!fs.existsSync(routerPath)) return;
-  console.log('APP-SERVER: Routes loaded for page:', pageDirName);
+  var pageDirPath = path.join(__dirname, pagesDir, pageDirName);
+  var pageDirStat = fs.statSync(pageDirPath);
+  if(!(pageDirStat instanceof fs.Stats) ||
+     !(pageDirStat.isDirectory(pageDirName))) return;
+  var routerPath = path.join(pageDirPath, 'server.js');
+  if(!(fs.existsSync(routerPath))) return;
+  var serverStat = fs.statSync(routerPath);
+  if(!(serverStat instanceof fs.Stats)) return;
+  console.log('APP-SERVER: Routes loaded for:', pageDirName);
   var pageRouter = require(routerPath);
   app.use('/', pageRouter);
-  console.log('APP-SERVER: Loading partials for page:', pageDirName);
-  console.log('APP-SERVER: App views dir:', app.get('views'));
-
+  // console.log('APP-SERVER: Loading partials from:', pageDirPath);
+  // // hbs.registerPartials(path.join(__dirname, pageDirPath));
+  // var partialPath = path.join(pageDirPath, pageDirName + '.hbs');
+  // if(!(fs.existsSync(partialPath))) return;
+  // hbs.registerPartial(partialPath, pageDirName);
+  // console.log('APP-SERVER: App views dir:', app.get('views'));
 });
 
 /// catch 404 and forwarding to error handler

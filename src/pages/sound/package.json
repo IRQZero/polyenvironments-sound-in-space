@@ -1,3 +1,6 @@
 {
-    "name" : "sound"
+    "name" : "sound",
+    "main" : "index.js",
+    "dependencies" : {},
+    "style" : "*.css"
 }
